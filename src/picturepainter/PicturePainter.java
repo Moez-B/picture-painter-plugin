@@ -7,8 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class PicturePainter extends JavaPlugin {
 	
-	public BufferedImage image;
-	public Location start;
+	public Stage stage = new Stage(null, null);
 	
 	@Override
 	public void onEnable() {

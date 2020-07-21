@@ -30,10 +30,12 @@ public class SetImageCommand implements CommandExecutor {
 		double scale;
 		
 		try {
-			this.plugin.image = ImageIO.read(new File(args[0]));
-			scale = nHeight / this.plugin.image.getHeight();
-			nWidth = (int)(this.plugin.image.getWidth() * scale);
-			this.plugin.image = EditImage.resize(this.plugin.image, nHeight, nWidth);
+			this.plugin.stage.setImage(ImageIO.read(new File(args[0])));
+			scale = nHeight / this.plugin.stage.image.getHeight();
+			nWidth = (int)(this.plugin.stage.image.getWidth() * scale);
+			this.plugin.stage.setImage(EditImage.resize(this.plugin.stage.image, nHeight, nWidth));
+			
+			this.plugin.stage.setLocation(((Player)sender).getLocation());
 			
 			Messages.image_successfully_read(sender);
 		}
