@@ -2,7 +2,7 @@ name: picturepainter
 version: 1.0
 main: picturepainter.PicturePainter
 description: recreates an image out of minecraft blocks from a provided image
-
+api-version: 1.13
 commands:
   setimage:
     description: sets image in stage

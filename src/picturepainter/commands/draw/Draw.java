@@ -17,19 +17,23 @@ public class Draw {
 
 	public static void draw(CommandSender sender, BufferedImage image, int height, int width) {
 		
-		Messages.drawing_start(sender);
-		
 		Player p = (Player)sender;
 		Material[][] blocks = buffer(sender, image, height, width);
 		
+		Messages.drawing_start(sender);
+		
+		p.sendMessage(blocks.length + " ");
+		p.sendMessage(blocks[1].length + " ");
+		
 		World world = Bukkit.getWorld("world");
+		
 		int startY = (int)p.getLocation().getY() + height;
 		int startX = (int)p.getLocation().getX();
 		int startZ = (int)p.getLocation().getZ();
 		
-		for(int y = startY; y < height; ++y) {
-			for(int x = startX; x < width; ++x) {
-				new Location(world, (double)x, (double)y, (double)startZ).getBlock().setType(blocks[y][x]);
+		for(int y = 0; y < height; ++y) {
+			for(int x = 0; x < width; ++x) {
+				new Location(world, startX + (double)x, startY - (double)y, (double)startZ).getBlock().setType(blocks[y][x]);
 			}
 		}		
 		
@@ -44,7 +48,7 @@ public class Draw {
 		
 		for(int y = 0; y < height; ++y) {
 			for(int x = 0; x < width; ++x) {
-				blocks[y][x] = Convert.convert(new Color(image.getRGB(y, x)));
+				blocks[y][x] = Convert.convert(new Color(image.getRGB(x, y)));
 				sender.sendMessage(((y*width) + x) + "/" + total + " completed...");
 			}
 		}

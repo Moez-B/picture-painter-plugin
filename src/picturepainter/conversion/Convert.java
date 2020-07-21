@@ -14,6 +14,10 @@ public class Convert {
 		int b = color.getBlue();
 		
 		Integer[] diffs = new Integer[Wools.values().length];
+		for(int i = 0; i < diffs.length; ++i) {
+			diffs[i] = 0;
+		}
+		
 		int c = 0;
 		
 		for(Wools wool : Wools.values()) {
