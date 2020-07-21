@@ -7,6 +7,7 @@ import org.bukkit.Location;
 public class Stage {
 
 	public BufferedImage image;
+	public String imageName;
 	public Location start;
 	
 	public Stage(BufferedImage image, Location start) {
@@ -18,7 +19,18 @@ public class Stage {
 		this.image = image;
 	}
 	
+	public void setImageName(String name) {
+		this.imageName = name;
+	}
+	
 	public void setLocation(Location location) {
 		this.start = location;
 	}
+	
+	public void clearStage() {
+		this.image = null;
+		this.imageName = null;
+		this.start = null;
+	}
+	
 }

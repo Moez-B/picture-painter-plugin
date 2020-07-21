@@ -7,23 +7,19 @@ import org.bukkit.command.CommandSender;
 import picturepainter.PicturePainter;
 import picturepainter.utils.constants.Messages;
 
-public class CheckStageCommand implements CommandExecutor {
-
+public class ClearStageCommand implements CommandExecutor {
+	
 	private PicturePainter plugin;
 	
-	public CheckStageCommand(PicturePainter p) {
+	public ClearStageCommand(PicturePainter p) {
 		this.plugin = p;
 	}
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args) {
-		if(this.plugin.stage.image == null) {
-			Messages.stage_empty(sender);
-			return false;
-		}
-		else {
-			sender.sendMessage(this.plugin.stage.imageName + " is the stage.");
-		}
+		this.plugin.stage.clearStage();
+		Messages.stage_cleared(sender);
 		return true;
 	}
+
 }

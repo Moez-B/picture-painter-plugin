@@ -11,12 +11,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import picturepainter.PicturePainter;
-import picturepainter.utils.Messages;
+import picturepainter.utils.constants.Messages;
+import picturepainter.utils.constants.NumericConstants;
 import picturepainter.utils.image.EditImage;
 
 public class SetImageCommand implements CommandExecutor {
 	
-	public PicturePainter plugin;
+	private PicturePainter plugin;
 	
 	public SetImageCommand(PicturePainter p) {
 		this.plugin = p;
@@ -25,12 +26,14 @@ public class SetImageCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args) {
 		
-		int nHeight = (int)(256 - ((Player)sender).getLocation().getY());
+		int nHeight = (int)(NumericConstants.HEIGHT_LIMIT - ((Player)sender).getLocation().getY());
 		int nWidth = 0;
 		double scale;
 		
 		try {
 			this.plugin.stage.setImage(ImageIO.read(new File(args[0])));
+			this.plugin.stage.setImageName(args[0]);
+			
 			scale = nHeight / this.plugin.stage.image.getHeight();
 			nWidth = (int)(this.plugin.stage.image.getWidth() * scale);
 			this.plugin.stage.setImage(EditImage.resize(this.plugin.stage.image, nHeight, nWidth));
