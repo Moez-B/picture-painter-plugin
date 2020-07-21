@@ -1,0 +1,5 @@
+name: picturepainter
+version: 1.0
+main: picturepainter.PicturePainter
+description: recreates an image out of minecraft blocks from a provided image
+commands:
