@@ -20,8 +20,8 @@ public class DrawCommand implements CommandExecutor {
 		if(this.plugin.stage.image == null) {
 			Messages.stage_empty(sender);
 			return false;
-		}
-		
+		}	
+		Draw.draw(sender, this.plugin.stage.image, this.plugin.stage.image.getHeight(), this.plugin.stage.image.getWidth());
 		return true;
 	}
 }

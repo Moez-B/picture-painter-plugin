@@ -23,4 +23,21 @@ public class Messages {
 	public static void stage_cleared(CommandSender sender) {
 		sender.sendMessage("Stage has been cleared!");
 	}
+	
+	//IMAGE DRAWING
+	public static void buffer_start(CommandSender sender) {
+		sender.sendMessage("Loading image...");
+	}
+	
+	public static void buffer_end(CommandSender sender) {
+		sender.sendMessage("Buffer Complete!");
+	}
+	
+	public static void drawing_start(CommandSender sender) {
+		sender.sendMessage("Started Drawing!");
+	}
+	
+	public static void drawing_end(CommandSender sender) {
+		sender.sendMessage("Drawing complete!");
+	}
 }
