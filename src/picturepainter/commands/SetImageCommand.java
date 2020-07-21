@@ -26,8 +26,8 @@ public class SetImageCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args) {
 		
-		int nHeight = (int)(NumericConstants.HEIGHT_LIMIT - ((Player)sender).getLocation().getY());
-		int nWidth = 0;
+		double nHeight = NumericConstants.HEIGHT_LIMIT - ((Player)sender).getLocation().getY();
+		double nWidth = 0;
 		double scale;
 		
 		try {
@@ -35,8 +35,9 @@ public class SetImageCommand implements CommandExecutor {
 			this.plugin.stage.setImageName(args[0]);
 			
 			scale = nHeight / this.plugin.stage.image.getHeight();
-			nWidth = (int)(this.plugin.stage.image.getWidth() * scale);
-			this.plugin.stage.setImage(EditImage.resize(this.plugin.stage.image, nHeight, nWidth));
+			nWidth = this.plugin.stage.image.getWidth() * scale;
+			
+			this.plugin.stage.setImage(EditImage.resize(this.plugin.stage.image, (int)nHeight, (int)nWidth));
 			
 			this.plugin.stage.setLocation(((Player)sender).getLocation());
 			

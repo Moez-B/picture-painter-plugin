@@ -22,9 +22,6 @@ public class Draw {
 		
 		Messages.drawing_start(sender);
 		
-		p.sendMessage(blocks.length + " ");
-		p.sendMessage(blocks[1].length + " ");
-		
 		World world = Bukkit.getWorld("world");
 		
 		int startY = (int)p.getLocation().getY() + height;
