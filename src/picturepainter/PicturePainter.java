@@ -9,7 +9,7 @@ import picturepainter.commands.draw.DrawCommand;
 
 public class PicturePainter extends JavaPlugin {
 	
-	public Stage stage = new Stage(null, null);
+	public Stage stage = new Stage(null, null, null);
 	
 	@Override
 	public void onEnable() {
@@ -17,6 +17,7 @@ public class PicturePainter extends JavaPlugin {
 		this.getCommand("clearstage").setExecutor(new ClearStageCommand(this));
 		this.getCommand("setimage").setExecutor(new SetImageCommand(this));
 		this.getCommand("draw").setExecutor(new DrawCommand(this));
+		
 	}
 	
 	@Override

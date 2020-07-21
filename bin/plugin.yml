@@ -2,4 +2,13 @@ name: picturepainter
 version: 1.0
 main: picturepainter.PicturePainter
 description: recreates an image out of minecraft blocks from a provided image
+
 commands:
+  setimage:
+    description: sets image in stage
+  stage:
+    description: checks image in stage
+  clearstage:
+    description: clears any information in the stage
+  draw:
+    description: starts construction image in minecraft

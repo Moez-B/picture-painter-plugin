@@ -10,8 +10,9 @@ public class Stage {
 	public String imageName;
 	public Location start;
 	
-	public Stage(BufferedImage image, Location start) {
+	public Stage(BufferedImage image, String imageName, Location start) {
 		this.image = image;
+		this.imageName = imageName;
 		this.start = start;
 	}
 	
