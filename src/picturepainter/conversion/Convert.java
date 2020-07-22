@@ -14,16 +14,14 @@ public class Convert {
 		int b = color.getBlue();
 		
 		Integer[] diffs = new Integer[Wools.values().length];
-		for(int i = 0; i < diffs.length; ++i) {
-			diffs[i] = 0;
-		}
-		
 		int c = 0;
 		
 		for(Wools wool : Wools.values()) {
-			diffs[c] += Math.abs(wool.color.getRed() - r);
-			diffs[c] += Math.abs(wool.color.getGreen() - g);
-			diffs[c] += Math.abs(wool.color.getBlue() - b);
+			diffs[c] = 0;
+			diffs[c] += (int)Math.pow(Math.abs(wool.color.getRed() - r), 2);
+			diffs[c] += (int)Math.pow(Math.abs(wool.color.getGreen() - g), 2);
+			diffs[c] += (int)Math.pow(Math.abs(wool.color.getBlue() - b), 2);
+			diffs[c] = (int)Math.sqrt(diffs[c]);
 			++c;
 		}
 		return Wools.values()[Arrays.asList(diffs).indexOf(Collections.min(Arrays.asList(diffs)))].block;
